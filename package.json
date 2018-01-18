@@ -1,0 +1,17 @@
+{
+  "name": "node-server-render",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "acl": "^0.4.11",
+    "express": "^4.16.2",
+    "mysql": "^2.15.0",
+    "nunjucks": "^3.0.1"
+  }
+}

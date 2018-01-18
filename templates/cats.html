@@ -1,0 +1,10 @@
+{% extends "_layout.html" %}
+
+{% block body %}
+This is the Cat Page
+
+{% for cat in cats %}
+	<li>{{cat.name}} - {{cat.favorite_color}}</li>
+
+{% endfor %}
+{% endblock %}
