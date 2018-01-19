@@ -28,9 +28,7 @@ Nunjucks.configure(Path.join(__dirname, 'templates'), {
 
 // Using middleware to dummy up data
 App.use(function(req, res, next){
-	req.session.userId = 'guest';
-	console.log(req.url);
-	console.log(req.session);
+	req.session.userId = 'guest1';
 	next();
 });
 

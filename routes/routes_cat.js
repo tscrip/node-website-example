@@ -1,7 +1,8 @@
 const Express = require('express');
 const Router = Express.Router();
 const Config = require('../config');
-//const DBConnection = require('../database');
+const ACL = require('../lib').ACL;
+//const DBConnection = require('../lib').Database;
 
 
 // Building middleware
@@ -15,7 +16,7 @@ var CustomMiddleware = function (req, res, next){
 Router.use(CustomMiddleware);
 
 // define the home page route
-Router.get('/', function (req, res) {
+Router.get('/', ACL.middleware(), function (req, res) {
 
 	var results = [
 	{

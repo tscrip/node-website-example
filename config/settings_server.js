@@ -3,7 +3,6 @@ const Path = require('path');
 const Settings = {
 	Web: {
 		Port: 8080,
-		TemplateRoot: Path.join(__dirname, '..', 'templates'),
 		Cookie: {
 			name: 'sampleApp',
   			keys: ['key1','key2'],
