@@ -13,12 +13,7 @@ const App = Express();
 App.use(Express.static('public'));
 
 // Configuring Express to use cookies
-App.use(CookieSession({
-	name: 'sampleApp',
-  	keys: ['key1','key2'],
-  	maxAge: 24 * 60 * 60 * 1000 // 24 hours)
- 	})
-);
+App.use(CookieSession(Config.Server.Web.Cookie));
 
 // Configuring Express to parse body
 App.use(BodyParser.urlencoded({ extended: false }));
@@ -47,6 +42,6 @@ const Routes_Cat = require('./routes/routes_cat');
 App.use('/dog', Routes_Dog);
 App.use('/cat', Routes_Cat);
 
-App.listen(Config.Server.Port, function(){
-	console.log('App listening on port: ' + Config.Server.Port);
+App.listen(Config.Server.Web.Port, function(){
+	console.log('App listening on port: ' + Config.Server.Web.Port);
 });
