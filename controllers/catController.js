@@ -15,9 +15,12 @@ var getCats = function (req, res) {
 
 		// Using connection to run query
 		conn.query(Config.Query.Cat.GetAllCat, function(error, results, fields){
-			
+
 			// Checking if query failed
 			if (error) console.log(error);
+
+			// Closing connection
+			conn.release();
 
 			// BUSINESS LOGIC GOES HERE
 
