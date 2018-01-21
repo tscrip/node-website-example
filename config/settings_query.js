@@ -1,12 +1,17 @@
+/**
+ * @name settings_query
+ * @description Contains queries for application
+ */
+
 const Queries = {
 	// Each entity is listed here
 	Dog: {
-		'GetAllDog': 'SELECT * FROM Dogs',
-		'GetADog': 'SELECT * FROM Dogs WHERE id = ?'
+		GetAllDog: 'SELECT * FROM Dog',
+		GetADog: 'SELECT * FROM Dog WHERE id = ?'
 	},
 	Cat: {
-		'GetAllCat': 'SELECT * FROM Cats',
-		'GetACat': 'SELECT * FROM Cat WHERE id = ?'
+		GetAllCat: 'SELECT * FROM Cat',
+		GetACat: 'SELECT * FROM Cat WHERE id = ?'
 	}
 }
 

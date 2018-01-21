@@ -1,3 +1,8 @@
+/**
+ * @name settings_acl
+ * @description ACLs config for application
+ */
+
 const Roles = [
     {
         roles: ['guest', 'member'],
@@ -6,7 +11,7 @@ const Roles = [
         ]
     },
     {
-    	roles: ['member'],
+    	roles: ['guest'],
     	allows: [
     		{ resources: '/cat', permissions: [ 'get', 'post', 'put', 'delete' ] }
     	]

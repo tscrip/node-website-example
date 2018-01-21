@@ -5,6 +5,7 @@ var cookieSession = require('cookie-session');
 const Config = require('./config');
 const Nunjucks = require('nunjucks');
 const Path = require('path');
+const Lib_Route = require('./lib/lib_route');
 
 // Building Express app
 const App = Express();
@@ -13,7 +14,7 @@ const App = Express();
 App.use(Express.static('public'));
 
 // Configuring Express to use cookies
-App.use(CookieSession(Config.Server.Web.Cookie));
+App.use(CookieSession(Config.Web.Cookie));
 
 // Configuring Express to parse body
 App.use(BodyParser.urlencoded({ extended: false }));
@@ -28,18 +29,13 @@ Nunjucks.configure(Path.join(__dirname, 'templates'), {
 
 // Using middleware to dummy up data
 App.use(function(req, res, next){
-	req.session.userId = 'guest1';
+	req.session.userId = 'guest';
 	next();
 });
 
 // Importing routes
-const Routes_Dog = require('./routes/routes_dog');
-const Routes_Cat = require('./routes/routes_cat');
+Lib_Route(App);
 
-// Configuring routes
-App.use('/dog', Routes_Dog);
-App.use('/cat', Routes_Cat);
-
-App.listen(Config.Server.Web.Port, function(){
-	console.log('App listening on port: ' + Config.Server.Web.Port);
+App.listen(Config.Web.Port, function(){
+	console.log('App listening on port: ' + Config.Web.Port);
 });
